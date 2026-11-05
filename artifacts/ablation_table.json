@@ -1,0 +1,38 @@
+[
+  {
+    "Configuration": "1. Image-Only Baseline",
+    "Description": "Standard 2D/3D visual backbone + Two-Level MIL (trained on 58 labeled studies only)",
+    "Validation Macro-AUC": 0.4611,
+    "Validation Log Loss": 0.7601,
+    "Cross-Attention": false,
+    "Auxiliary Supervision": false,
+    "Site Shortcut Trap": false
+  },
+  {
+    "Configuration": "2. + Text-Guided Cross-Attention",
+    "Description": "Visual backbone + text-guided cross-attention with XLM-R embeddings & null token",
+    "Validation Macro-AUC": 0.4946,
+    "Validation Log Loss": 0.7751,
+    "Cross-Attention": true,
+    "Auxiliary Supervision": false,
+    "Site Shortcut Trap": false
+  },
+  {
+    "Configuration": "3. + Auxiliary Report Labels",
+    "Description": "Cross-attention + confidence-weighted soft BCE loss on 4,349 multilingual reports",
+    "Validation Macro-AUC": 0.5004,
+    "Validation Log Loss": 0.7209,
+    "Cross-Attention": true,
+    "Auxiliary Supervision": true,
+    "Site Shortcut Trap": false
+  },
+  {
+    "Configuration": "4. + Site Shortcut Trap (Full Recipe)",
+    "Description": "Full model with site bias table a[site, finding] + acquisition MLP g(params)",
+    "Validation Macro-AUC": 0.4602,
+    "Validation Log Loss": 0.6855,
+    "Cross-Attention": true,
+    "Auxiliary Supervision": true,
+    "Site Shortcut Trap": true
+  }
+]

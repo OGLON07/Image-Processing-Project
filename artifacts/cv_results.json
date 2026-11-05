@@ -1,0 +1,35 @@
+{
+  "num_folds": 5,
+  "mean_macro_auc": 0.5212,
+  "std_macro_auc": 0.0887,
+  "mean_log_loss": 0.7171,
+  "std_log_loss": 0.041,
+  "fold_macro_aucs": [
+    0.5196,
+    0.5931,
+    0.5777,
+    0.3507,
+    0.5649
+  ],
+  "fold_log_losses": [
+    0.7099,
+    0.772,
+    0.7075,
+    0.7455,
+    0.6504
+  ],
+  "finding_aucs_fold_0": {
+    "ACL": 0.2778,
+    "MCL": 0.5938,
+    "Medial Meniscus": 0.6571,
+    "Lateral Meniscus": 0.4722,
+    "Medial OA": 0.0909,
+    "Lateral OA": 0.7037,
+    "PF OA": 0.5926,
+    "Effusion": 0.9062,
+    "Synovitis": 0.5,
+    "Baker's": 0.9091,
+    "Contusion": 0.4688,
+    "Fracture": 0.0625
+  }
+}

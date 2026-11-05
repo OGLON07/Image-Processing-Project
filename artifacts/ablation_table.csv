@@ -1,0 +1,5 @@
+Configuration,Description,Validation Macro-AUC,Validation Log Loss,Cross-Attention,Auxiliary Supervision,Site Shortcut Trap
+1. Image-Only Baseline,Standard 2D/3D visual backbone + Two-Level MIL (trained on 58 labeled studies only),0.4611,0.7601,False,False,False
+2. + Text-Guided Cross-Attention,Visual backbone + text-guided cross-attention with XLM-R embeddings & null token,0.4946,0.7751,True,False,False
+3. + Auxiliary Report Labels,"Cross-attention + confidence-weighted soft BCE loss on 4,349 multilingual reports",0.5004,0.7209,True,True,False
+4. + Site Shortcut Trap (Full Recipe),"Full model with site bias table a[site, finding] + acquisition MLP g(params)",0.4602,0.6855,True,True,True

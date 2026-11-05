@@ -1,0 +1,52 @@
+# Configuration for RSNA Knee Abnormality Detection (Group 2)
+# Strict adherence to Group 2 Plan of Action & 33rd Place Silver Solution
+
+experiment:
+  name: "rsna_knee_mil_crossattn_trap"
+  seed: 42
+  num_folds: 5
+  device: "cuda"
+
+data:
+  train_csv: "train.csv"
+  train_series_csv: "train_series.csv"
+  sample_submission_csv: "sample_submission.csv"
+  folds_csv: "artifacts/train_folds.csv"
+  img_size: 256
+  norm_percentiles: [2.0, 98.0]
+  slices_per_window: 3 # 2.5D slice stacking
+  windows_per_series: 4
+
+targets:
+  num_classes: 12
+  classes:
+    - "ACL"
+    - "MCL"
+    - "Medial Meniscus"
+    - "Lateral Meniscus"
+    - "Medial OA"
+    - "Lateral OA"
+    - "PF OA"
+    - "Effusion"
+    - "Synovitis"
+    - "Baker's"
+    - "Contusion"
+    - "Fracture"
+
+model:
+  backbone: "coatnet_or_convnext"
+  feature_dim: 128
+  mil_hidden_dim: 256
+  text_dim: 128
+  text_dropout_prob: 0.4
+  use_cross_attention: true
+  use_site_trap: true
+  num_sites: 20
+
+training:
+  epochs: 3
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  aux_loss_weight: 0.5
+  mixed_precision: true
+
